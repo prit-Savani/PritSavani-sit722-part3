@@ -1,0 +1,24 @@
+# Docker compose file for building docker images and running locally
+
+version: '3.8'
+
+services:
+  book_catalog:
+    build:
+     context: ./book_catalog
+     dockerfile: Dockerfile
+    ports:
+      - "8001:8000"
+    environment:
+      - DATABASE_URL=postgresql://week7part3_8a5c_user:1LXAeTMAWHdcZ69vrqcfrAOgej53QNlU@dpg-crkg7opu0jms73bll8dg-a.oregon-postgres.render.com/week7part3_8a5c
+ 
+
+  inventory_management:
+    build:
+     context: ./inventory_management
+     dockerfile: Dockerfile
+    ports:
+      - "8002:8000"
+    environment:
+     - DATABASE_URL=postgresql://week7part3_8a5c_user:1LXAeTMAWHdcZ69vrqcfrAOgej53QNlU@dpg-crkg7opu0jms73bll8dg-a.oregon-postgres.render.com/week7part3_8a5c
+
